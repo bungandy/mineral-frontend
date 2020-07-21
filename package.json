@@ -1,10 +1,10 @@
 {
   "name": "mineral-frontend",
-  "description": "Basic Frontend Commerce",
-  "homepage": "https://github.com/bungandy/frontend-commerce#readme",
+  "description": "Basic Frontend Starter",
+  "homepage": "https://github.com/bungandy/mineral-frontend#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bungandy/frontend-commerce.git"
+    "url": "git://github.com/bungandy/mineral-frontend.git"
   },
   "files": [
     "dist/assets/*.{css,js,map}",
@@ -58,7 +58,7 @@
     "zoomove": "^1.3.0"
   },
   "bugs": {
-    "url": "https://github.com/bungandy/frontend-commerce/issues"
+    "url": "https://github.com/bungandy/mineral-frontend/issues"
   },
   "keywords": [
     "frontend",
