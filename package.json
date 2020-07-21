@@ -7,15 +7,15 @@
     "url": "git://github.com/bungandy/mineral-frontend.git"
   },
   "files": [
-    "dist/assets/*.{css,js,map}",
-    "scss/**/*.scss"
+    "scss/**/*.scss",
+    "js/**/*.js"
   ],
   "scripts": {
     "watch": "gulp clean && gulp watch",
     "build": "gulp clean && gulp minify",
     "start": "gulp clean && ./node_modules/live-server/live-server.js --port=3000 dist/"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Andy Christiawan",
   "main": "index.js",
   "license": "ISC",
