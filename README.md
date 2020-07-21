@@ -1,6 +1,6 @@
 ![](http://mineral.co.id/assets/img/logo_mineral@2x.png)
 
-**Frontend Commerce**
+**Mineral Frontend**
 
 ---
 
