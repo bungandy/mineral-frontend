@@ -1,5 +1,5 @@
 {
-  "name": "frontend-commerce",
+  "name": "mineral-frontend",
   "description": "Basic Frontend Commerce",
   "homepage": "https://github.com/bungandy/frontend-commerce#readme",
   "repository": {
@@ -15,7 +15,7 @@
     "build": "gulp clean && gulp minify",
     "start": "gulp clean && ./node_modules/live-server/live-server.js --port=3000 dist/"
   },
-  "version": "1.2.0",
+  "version": "0.0.1",
   "author": "Andy Christiawan",
   "main": "index.js",
   "license": "ISC",
@@ -62,6 +62,7 @@
   },
   "keywords": [
     "frontend",
-    "ecommerce"
+    "ecommerce",
+    "starter html"
   ]
 }
