@@ -1,0 +1,47 @@
+{% extends "email.njk" %}
+
+{% block content %}
+<table id="content" cellpadding="0" cellspacing="0">
+	<tbody>
+		<tr>
+			<td>
+				<table id="content-top" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td>
+								<h1>Selesaikan pembayaran</h1>
+
+								<p>Mohon segera selesaikan pesanan anda dalam kurang 1 jam.</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{% include "components/email/content-order-overview.njk" %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				{% include "components/email/content-order-item.njk" %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="cta" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td>
+								<a href="#" class="btn btn-lg btn-primary btn-block" style="margin-bottom: 50px">LIHAT PESANAN</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+{% endblock %}
+

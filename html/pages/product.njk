@@ -1,0 +1,125 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+    <section id="product" class="py-5">
+        <div class="container" style="display:none">
+            <div id="product-empty">
+                <div class="row no-gutters align-items-center height-vh">
+                    <div class="col text-center">
+                        <h3 class="text-color-primary-20">We're sorry 🙁</h3>
+                        <p>Produk yang Anda cari sudah habis atau tidak ada.</p>
+                        <a href="product.html" class="btn btn-primary">Cari koleksi lainnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+
+            <h3 class="text-color-primary-20 mb-5">Menampilkan hasil pencarian dari 'denim'</h3>
+
+            <div id="product-filter" class="d-flex flex-column flex-sm-row justify-content-between mb-5 position-relative">
+                <nav class="product-tag nav position-relative flex-sm-row">
+                    {% for i in range(0,5) %}
+                    <span class="nav-link btn-secondary btn-pill btn-sm mr-2 mb-2">Category {{ i }}</span>
+                    {% endfor %}
+                </nav>
+
+                <nav class="product-sort nav position-relative flex-sm-row justify-content-between">
+                    <span class="product-filter-btn nav-link btn-default btn-sm font-weight-bold">
+                        Filter <i class="fal fa-sort-amount-down-alt"></i>
+                        <!--2 Filters applied <i class="fal fa-times"></i>-->
+                    </span>
+
+                    <div class="nav position-relative flex-sm-row justify-content-between">
+                        <span class="nav-link text-color-primary btn-sm pr-1">Sort by</span>
+                    
+                        <select name="" id="">
+                            <option value="1">Featured</option>
+                            <option value="2">Best selling</option>
+                            <option value="3">Alphabetically, A-Z</option>
+                            <option value="4">Alphabetically, Z-A</option>
+                            <option value="5">Price, Low to high</option>
+                            <option value="6">Price, High to low</option>
+                            <option value="7">Newest</option>
+                            <option value="8">Oldest</option>
+                        </select>
+                    </div>
+                    
+                </nav>
+
+                <div id="product-filter-option" class="position-absolute d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-end pt-3 pb-5">
+                    {% for i in range(0,3) %}
+                    <div class="mb-5">
+                        <h5 class="text-color-primary-20">Filter Option {{ i }}</h5>
+                        <nav class="product-filter-option nav flex-column justify-content-between">
+                            {% for j in range(0,10) %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="filter-{{i}}{{j}}" value="">
+                                <label class="form-check-label" for="filter-{{i}}{{j}}">Option {{ i }} - {{ j }}</label>
+                            </div>
+                            {% endfor %}
+                        </nav>
+                    </div>
+                    {% endfor %}
+
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-secondary flex-fill">Clear Section</a>
+                        <a href="#" class="btn btn-primary flex-fill ml-3">Close</a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="product-listing">
+                <div class="row">
+                    {% for i in range(0,25) %}
+                    <div class="col-6 align-self-center mb-5
+                        {% if i in [5,10] %}col-md-5{% elseif i in [16,17] %}col-md-5{% elseif i in [22] %}col-md-4{% else %}col-md-3{% endif %}
+                        {% if i in [4,10] %}offset-md-2{% endif %}
+                        {% if i in [16,22] %}offset-md-1{% endif %}
+                    ">
+                        {% include "components/commerce/product-loop.njk" %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div id="load-more" class="py-5 text-center">
+
+                    <div class="loading">
+                        <p class="small text-muted m-0">Loading...</p>
+                    </div>
+
+                    <div class="done">
+                        <div class="h5 m-0">🎉</div>
+                        <p class="small text-muted m-0">All product loaded.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            
+        </div>
+    </section>
+    
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    let productFilter = false
+    $('.product-filter-btn').on('click',function(){
+        if(!productFilter){
+            $('#product-filter-option').addClass('active')
+            $('#product-listing').addClass('inactive')
+            productFilter = true
+        }else{
+            $('#product-filter-option').removeClass('active')
+            $('#product-listing').removeClass('inactive')
+            productFilter = false
+        }
+        console.log('product-filter-btn clicked')
+    })
+</script>
+{% endblock %}

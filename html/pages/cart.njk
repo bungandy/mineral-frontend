@@ -1,0 +1,41 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section class="cart-overview pb-3">
+        <div class="container-fluid">
+            {% set checkoutStepActive = "cart" %}
+            {% include "components/commerce/checkout-step.njk" %}
+        </div>
+    </section>
+
+    <section id="cart" class="pb-5">
+
+        <!-- if cart empty -->
+        <div class="container">
+            <div class="row no-gutters align-items-center height-vh">
+                <div class="col text-center">
+                    <h3 class="text-color-primary-20 mb-4">Your cart is currently empty 🍃</h3>
+                    <a href="product.html" class="btn btn-primary">Cari koleksi lainnya</a>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    {% set isCartEditable = true %}
+                    {% include "components/commerce/cart-table.njk" %}
+                </div>
+                <div class="col-md-4 mobile-px-0">
+                    {% include "components/commerce/order-summary.njk" %}
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}

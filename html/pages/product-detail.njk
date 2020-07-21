@@ -1,0 +1,188 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+    <section id="product-overview" class="position-fixed">
+        <div class="container-fluid py-3">
+            <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between">
+                <div class="left d-flex flex-row justify-content-between align-items-center">
+                    <span class="font-serif text-color-primary">Gamila Skirt</span>
+                    <div class="color-selected ml-5">
+                        <span class="color"><span style="background-color:#F4B588"></span></span>
+                        <span class="name text-color-primary-20 small font-weight-bold">Color - Brown</span>
+                    </div>
+                </div>
+                <div class="right d-flex flex-row justify-content-center align-items-center">
+                    <div class="size-option d-none d-md-flex flex-column flex-md-row mr-5">
+                        {% for size in [{name: "XS",value: "xs"},{name: "S",value: "s"},{name: "M",value: "m"},{name: "L",value: "l"},{name: "XL",value: "xl"} ] %}
+                        <span {% if size.value == "xs" %}class="active"{% endif %} data-name="size-{{size.name}}" data-size="{{size.value}}">{{size.name }}</span>
+                        {% endfor %}
+                    </div>
+                    <button class="btn btn-secondary btn-sm">Add to cart - Rp 350,000</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-detail">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col col-md-2 d-none d-md-block">
+                    <div class="d-flex flex-column">
+                        {% for i in range(0,5) %}
+                        <a href="#" class="nav-link small py-1 px-0">Category {{i}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row no-gutters justify-content-start mb-5">
+                        <div class="col-12 col-md-6 mb-5">
+                            <div class="product-image position-relative">
+                                {# https://www.jacklmoore.com/zoom/ #}
+                                <img class="img-fluid" src="holder.js/600x800?auto=yes" alt="">
+                                <span class="zoom position-absolute" onclick="imageZoom()"><i class="far fa-plus fa-2x"></i></span>
+                            </div>
+                        </div>
+                        <div class="product-detail col-12 col-md-4 offset-md-1">
+                            <h3 class="text-color-primary mb-3">Gamila Skirt</h3>
+
+                            <div class="small font-weight-bold mb-1">Color <span class="active">- Brown</span></div>
+                            <div class="color-option d-flex flex-row mb-3 my-2">
+                                {% for color in [{name: "brown",value: "#9F7050"},{name: "orange",value: "#F4B588"},{name: "cyan", value: "#A9BBBA"} ] %}
+                                <span {% if color.name == "brown" %}class="active"{% endif %} data-name="color-{{color.name}}" data-color="{{color.value}}">
+                                    <span style="background-color:{{color.value}}"></span>
+                                </span>
+                                {% endfor %}
+                            </div>
+
+                            <div class="small font-weight-bold mb-1">Size</div>
+                            <div class="size-option d-flex flex-row mb-3">
+                                {% for size in [{name: "XS",value: "xs"},{name: "S",value: "s"},{name: "M",value: "m"},{name: "L",value: "l"},{name: "XL",value: "xl"} ] %}
+                                <span {% if size.value == "xs" %}class="active"{% endif %} data-name="size-{{size.name}}" data-size="{{size.value}}">
+                                    <span>{{size.name }}</span>
+                                </span>
+                                {% endfor %}
+                            </div>
+                            
+
+                            <div class="small font-weight-bold mb-1">Quantity</div>
+                            <div class="qty-input d-flex flex-row align-items-center mb-3">
+                                <i class="fal fa-minus"></i>
+                                <input class="mx-2 text-center" type="number" value="1">
+                                <i class="fal fa-plus"></i>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-between mb-2">
+                                <h5 class="text-color-primary-20">Rp 350,000</h5>
+                                <span class="wishlist-btn small"><i class="fal fa-heart"></i> <i class="fas fa-heart"></i> Wishlist</span>
+                            </div>
+
+                            <button class="btn btn-secondary btn-block mb-3">Add to cart - Rp 350,000</button>
+
+                            <div class="small text-color-primary--20">
+                                <p>Non irure ullamco esse enim eu ea incididunt in quis veniam aute qui ea. Dolor dolore et ad nisi anim laborum veniam. Ex commodo eiusmod deserunt culpa non aliquip in do velit reprehenderit adipisicing ipsum reprehenderit. Duis irure irure proident et non cillum sunt.</p>
+                                <p>Our model is 178cm tall and wears a size S.</p>
+                            </div>
+                            
+                            <a class="small" href="#">Size Guide</a>
+
+                            <h6 class="text-color-primary-20 mt-5">Materials &amp; Care</h6>
+                            <div class="small">
+                                <p><strong>Main Fabric</strong><br/>
+                                90% Cotton, 2% Elastane</p>
+                                <p><strong>Care</strong><br/>
+                                Machine Wash</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="gallery row no-gutters">
+                        <div class="col-md-9">
+                            {% for i in range(0,3) %}
+                            <img class="img-fluid mb-3" src="holder.js/900x1200?auto=yes" alt="">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="product-related" class="bg-brown py-5">
+        <div class="container-fluid">
+            <h3 class="text-color-primary-20 mb-5">You might also like</h3>
+        </div>
+        <div id="product-related-slick" class="slick">
+            {% for i in range(0,12) %}
+            {% include "components/commerce/product-loop.njk" %}
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+<section id="product-image-zoom" class="position-fixed" style="display:none">
+    <span class="close position-absolute d-flex justify-content-center align-items-center"><i class="fal fa-times"></i></span>
+    <img id="product-image-zoom-img" src="assets/img/_temp/product_detail.jpg"/>
+</section>
+
+{% include "components/modal-sizeguide.njk" %}
+
+{% endblock %}
+
+{% block script %}
+<script>
+    window.addEventListener('load',function(){
+
+        // $('#modal-sizeguide').modal('show')
+
+        /* ------------------------- Product featured slick ------------------------- */
+        $('#product-related-slick').slick({
+            dots: false,
+            arrows: false,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: false,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+            ]
+        });
+
+        
+
+    })
+
+    let prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        let currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            if( currentScrollPos < 100 ){
+                document.getElementById("product-overview").style.transform = "translateY(-100%)";
+            }else{
+                document.getElementById("product-overview").style.transform = "translateY(0)";
+            }
+        } else {
+            document.getElementById("product-overview").style.transform = "translateY(-100%)";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+
+    let productImageZoom = $('#product-image-zoom');
+    productImageZoom.zoom();
+
+    function imageZoom(){
+        productImageZoom.fadeIn(200);
+    }
+
+    $('#product-image-zoom').on('click',function(){
+        productImageZoom.fadeOut(200);
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,9 @@
+<nav id="checkout-step" class="nav justify-content-start align-items-center">
+    <a class="nav-link btn text-uppercase {% if checkoutStepActive == "cart" %}btn-gray{% else %}btn-secondary{% endif %}" href="#">
+        <i class="fal fa-shopping-bag"></i> <span class="small">CART</span>
+    </a>
+    <span class="separator d-none d-sm-inline-block"><i class="fas fa-chevron-right fa-xs mx-3"></i></span>
+    <a class="nav-link btn text-uppercase {% if checkoutStepActive == "shipment" %}btn-gray{% else %}btn-secondary{% endif %}" href="#">
+        <i class="fal fa-truck"></i> <span class="small">SHIPMENT</span>
+    </a>
+</nav>

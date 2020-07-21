@@ -1,0 +1,34 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section id="account" class="pt-4 pb-5">
+
+        <div class="container-fluid">
+            <div class="row">
+                {% set accountNavActive = 0 %}
+                {% include "components/commerce/account-nav.njk" %}
+                <section class="col-md-6">
+                    
+                    {% set accountPageTitle = "Account Profile" %}
+                    {% include "components/commerce/account-title.njk" %}
+                    
+                    <form>
+                        {% set inputType = "account" %}
+                        {% include "components/commerce/account-fields.njk" %}
+
+                        <div class="form-group row justify-content-end mt-5">
+                            <div class="col-sm-8">
+                                <button class="btn btn-primary">Save Change</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}

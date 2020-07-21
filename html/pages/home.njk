@@ -1,0 +1,168 @@
+{% set topbarText = "#NUETA2020" %}
+{% set headerClass = "fixed-header" %}
+{% set hasCart = true %}
+
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content" class="has-hero">
+    <section id="hero" class="position-relative">
+        <div id="hero-slick" class="slick m-0">
+            {% for i in range(0,3) %}
+            <div>
+                {# <img class="img-fluid" src="//source.unsplash.com/random/1080x1080?garment,minimalist,warm,1{{ i }}" alt=""> #}
+                <img class="img-fluid" src="holder.js/1080x1080?auto=yes" alt="">
+                <div class="caption">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col col-sm-7">
+                                <h2 class="display-4 mb-4">Elevated details and calming tones the essence of everyday minimalist</h2>
+                                <h6><a href="#">Lihat Koleksi</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="collection" class="py-5">
+        <h2 class="d-none d-md-block text-color-primary text-center mb-5">Koleksi Nueta</h2>
+        <div id="collection-slick" class="slick">
+            {% for i in range(0,5) %}
+            <div class="collection-item position-relative">
+                {# <img class="img-fluid" src="//source.unsplash.com/random/1080x1080?garment,minimalist,warm,2{{ i }}" alt=""> #}
+                <img class="img-fluid" src="holder.js/800x600?auto=yes" alt="">
+                <div class="caption d-flex justify-content-center align-items-center">
+                    <div class="display-3 text-color-primary">Gamilia</div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center d-md-none position-relative" style="top: -1rem">
+            <a href="#" class="btn btn-light">LIHAT KOLEKSI</a>
+        </div>
+    </section>
+
+    <section id="product-featured" class="py-5">
+        <div class="container-fluid">
+            <h2 class="text-color-primary">You might also like</h2>
+            <p>Check out our latest arrivals for the upcoming season<br/>
+            <a href="#">See full collection here</a></p>
+        </div>
+        <div id="product-featured-slick" class="slick">
+            {% for i in range(0,5) %}
+            {% include "components/commerce/product-loop.njk" %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="about" class="bg-light py-5">
+        <div class="container text-center">
+            <p class="text-color-primary my-5">About Nueta</p>
+            <h2 class="text-color-primary mb-5">
+                Nueta is a brand new clothing line that established on July 2018.<br/>
+                Our concept is minimalist and inspired by japanese or korean aesthetic,<br/>
+                clean and simple. Nueta is simple but attractive.
+            </h2>
+        </div>
+    </section>
+
+    <section id="social-feed">
+        <div id="social-feed-slick">
+            {% for i in range(0,16) %}
+            <div class="position-relative py-2 px-1">
+                <div class="social-feed-item position-relative">
+                    {# <img class="img-fluid" src="//source.unsplash.com/random/640x640?garment,minimalist,warm,4{{ i }}" alt=""> #}
+                    <img class="img-fluid" src="holder.js/640x640?auto=yes" alt="">
+                    <div class="caption d-flex align-items-center p-3">
+                        <div class="extra-small top">200 LIKES</div>
+                        <div class="extra-small">Esse minim in quis Lorem occaecat commodo aliquip voluptate dolore sunt laboris pariatur in ea.</div>
+                        <div class="extra-small bottom">JULY 5, 2020</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+</main>
+
+{% include "components/modal-subscribe-banner.njk" %}
+
+{% endblock %}
+
+{% block script %}
+<script>
+    window.addEventListener('load',function(){
+
+        //$('#modal-subscribe').modal('show')
+
+        /* ------------------------------- Hero slick ------------------------------- */
+        $('#hero-slick').slick({
+            dots: false,
+            arrows: false,
+        });
+
+        /* ---------------------------- Collection slick ---------------------------- */
+        $('#collection-slick').slick({
+            dots: false,
+            arrows: false,
+            slidesToShow: 1,
+            infinite: true,
+            centerMode: true,
+            centerPadding: '200px',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        centerPadding: '50px',
+                        arrows: true,
+                    }
+                },
+            ]
+        });
+
+        /* ------------------------- Product featured slick ------------------------- */
+        $('#product-featured-slick').slick({
+            dots: false,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+            ]
+        });
+
+        /* ---------------------------- Social feed slick --------------------------- */
+        $('#social-feed-slick').slick({
+            dots: false,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            infinite: true,
+            centerMode: true,
+            centerPadding: '200px',
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        centerPadding: '50px',
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                    }
+                },
+            ]
+        });
+
+        
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="product-item position-relative">
+    {# <img class="img-fluid" src="//source.unsplash.com/random/600x800?garment,minimalist,warm,3{{ i }}" alt=""> #}
+    <a href="product-single.html"><img class="img-fluid" src="holder.js/600x800?auto=yes" alt=""></a>
+    <div class="badge small">
+        <span>New</span>
+        <span>Sustainable</span>
+    </div>
+    <div class="text-color-primary font-serif mt-2">
+        <a href="product-single.html">Gamila Skirt {{ i }}</a>
+    </div>
+    <div class="color-option d-flex flex-row my-2">
+        {% for color in [{name: "brown",value: "#9F7050"},{name: "orange",value: "#F4B588"},{name: "cyan", value: "#A9BBBA"} ] %}
+        <span {% if color.name == "brown" %}class="active"{% endif %} data-name="color-{{color.name}}" data-color="{{color.value}}"><span style="background-color:{{color.value}}"></span></span>
+        {% endfor %}
+    </div>
+    
+    <p class="text-color-primary font-serif">IDR 350,000</p>
+</div>

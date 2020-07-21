@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--
+
+            _                      _   
+  _ __ ___ (_)_ __   ___ _ __ __ _| |  
+ | '_ ` _ \| | '_ \ / _ \ '__/ _` | |  
+ | | | | | | | | | |  __/ | | (_| | |_ 
+ |_| |_| |_|_|_| |_|\___|_|  \__,_|_(_)
+
+ site       : http://mineral.co.id
+ email      : hello@mineral.co.id
+ twitter    : @mineralstudio
+
+-->
+
+
+
+
+
+
+<html lang="en" class="no-js mineral-id andy-christiawan">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    {% if title %}
+    <title>{% block title %}{% endblock %} &mbull; NUETA</title>
+    {% else %}
+    <title>NUETA</title>
+    {% endif %}
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+
+    {% if meta %}
+    
+    {% block meta %}
+    {% endblock %}
+
+    {% else %}
+    
+    {% include "partials/meta.njk" %}
+    
+    {% endif %}
+
+    <base href=""/>
+    
+    <link rel="canonical" href="https://mineral.co.id" />
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <link rel="icon" type="image/png" href="assets/icon/icon-16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/icon/icon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/icon/icon-96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/icon/icon-192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/icon/icon-194.png" sizes="194x194">
+    <link rel="apple-touch-icon" href="assets/icon/icon-57.png" sizes="57x57">
+    <link rel="apple-touch-icon" href="assets/icon/icon-60.png" sizes="60x60">
+    <link rel="apple-touch-icon" href="assets/icon/icon-72.png" sizes="72x72">
+    <link rel="apple-touch-icon" href="assets/icon/icon-76.png" sizes="76x76">
+    <link rel="apple-touch-icon" href="assets/icon/icon-114.png" sizes="114x114">
+    <link rel="apple-touch-icon" href="assets/icon/icon-120.png" sizes="120x120">
+    <link rel="apple-touch-icon" href="assets/icon/icon-144.png" sizes="144x144">
+    <link rel="apple-touch-icon" href="assets/icon/icon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="assets/icon/icon-180.png" sizes="180x180">
+
+    <link rel="stylesheet" href="assets/style.css">
+    
+
+    <script src="https://kit.fontawesome.com/75b350cf8f.js" crossorigin="anonymous"></script>
+</head>
+
+<body {% if bodyClass %}class="{{ bodyClass }}{% endif %}">
+    
+    {% include "partials/header.njk" %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include "partials/footer.njk" %}
+
+    <script src="assets/script.js"></script>
+
+    {% block script %}
+    {% endblock %}
+    
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+@import "../../node_modules/reset-css/sass/reset";
+@import "../../node_modules/normalize.scss/normalize";
+@import "./mineral/vars";
+@import "./mineral/mixin";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+
+
+$paddingVer 	: 15px;
+$paddingHor 	: 40px;
+
+/* --------------------------------- GLOBAL --------------------------------- */
+html{
+    position: relative;
+}
+body{
+	font-family: 'Inter', sans-serif;
+	color: $gray;
+	letter-spacing: 1px;
+	font-size: 14px;
+	line-height: 20px;
+    overflow-x: hidden;
+    background-color: $gray-bg;
+}
+strong{
+	font-weight: 600;
+}
+hr{
+	border-color: $gray;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	width: 30px;
+	margin-left: 0;
+
+	&.sparator{
+		border-top-width: 2px;
+		border-color: $primary;
+		margin: 1rem auto .5rem;
+	}
+}
+h1{
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 34px;
+	letter-spacing: 1px;
+	margin-top: ($paddingVer *2);
+	margin-bottom: ($paddingVer *4);
+}
+h2{
+	font-size: 1.2rem;
+}
+p{
+	margin-bottom: 20px;
+	line-height: 1.5rem;
+}
+
+table{
+	td{
+		vertical-align: top;
+	}
+}
+
+/* -------------------------------- ELEMENTS -------------------------------- */
+#wrap{
+	max-width: 600px;
+	// margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $gray-bg;
+
+	tbody > tr > td > table{
+		width: 100%;
+	}
+}
+.btn{
+	display: inline-block;
+	text-decoration: none;
+	white-space: nowrap;
+	border-radius: 4px;
+	font-size: 14px;
+	line-height: 44px;
+	padding-left: 10px;
+	padding-right: 10px;
+	letter-spacing: 1px;
+	text-align: center;
+	font-weight: bold;
+}
+.btn-block{
+	display: block;
+}
+.btn-lg{
+	font-size: 12px;
+}
+.btn-primary{
+	background-color: $primary;
+	color: #fff;
+}
+.link{
+	color: $primary;
+}
+
+/* --------------------------------- HEADER --------------------------------- */
+#header{
+	background-color: #fff;
+	td{
+		text-align: center;
+		padding-top: $paddingHor;
+	}
+
+	#logo{
+		fill: $primary;
+	}
+}
+
+/* --------------------------------- FOOTER --------------------------------- */
+#footer{
+	> tbody > tr > td{
+		text-align: center;
+		padding-top: ($paddingVer *2);
+	}
+	
+	#footer-hashtag{
+		> tbody > tr > td{
+			padding-top: $paddingVer;
+			padding-bottom: $paddingVer;
+			a{
+				color: #000;
+				display: block;
+				line-height: 44px;
+			}
+
+			.hashtag{
+				margin-bottom: 2rem;
+			}
+
+			.social{
+				color: $gray;
+				text-decoration: none;
+			}
+		}
+	}
+
+	#footer-social{
+		> tbody > tr > td{
+			padding-bottom: $paddingVer;
+			span{
+				display: block;
+				margin-bottom: 10px;
+			}
+			a{
+				display: inline-block;
+				width: 44px;
+				line-height: 44px;
+				text-align: center;
+				color: $gray;
+			}
+		}
+	}
+
+	#footer-copyright{
+		> tbody > tr > td{
+			color: $gray;
+			padding-top: $paddingVer;
+			padding-bottom: ($paddingVer *5);
+		}
+	}
+
+}
+
+/* --------------------------------- CONTENT -------------------------------- */
+#content{
+	background-color: #fff;
+
+	.cta{
+		> tbody > tr > td{
+			padding: $paddingVer $paddingHor;
+			text-align: center;
+		}
+	}
+
+	.highlight{
+		border: 2px solid $primary;
+		padding: 1.2rem 1rem 1rem;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 2rem;
+		margin: 3rem 2rem;
+		color: $primary;
+		font-family: 'Inconsolata', monospace;
+
+	}
+
+	#content-contact{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingHor $paddingHor;
+		}
+	}
+
+	#content-top{
+		> tbody > tr > td{
+			padding: $paddingVer $paddingHor;
+			text-align: center;
+		}
+	}
+
+	#content-body{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingHor $paddingHor;
+		}
+	}
+
+	#content-payment-info{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingVer $paddingHor;
+			
+			> table > tbody > tr > td{
+				color: #000;
+				padding: 10px;
+			}
+		}
+	}
+
+	#content-order-overview{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingVer $paddingHor;
+			
+			> table > tbody > tr > td{
+				width: 50%;
+				padding: 10px;
+			}
+		}
+	}
+
+	#content-shipment{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingVer $paddingHor;
+			
+			> table > tbody > tr > td{
+				width: 50%;
+				padding: 10px;
+			}
+		}
+	}
+
+	#est-shipment{
+		margin-top: 30px;
+		
+		> tbody > tr > th{
+			background-color: $gray-bg;
+			color: #000;
+			padding: 10px;
+			text-align: left;
+		}
+	}
+
+	#content-order-item{
+		> tbody > tr > td{
+			border-top: 1px solid $gray-line;
+			padding: $paddingVer $paddingHor;
+
+			> table{
+				> thead > tr > td{
+					padding: $paddingVer 0;
+				}
+
+				> tbody > tr > td{
+					vertical-align: top;
+					padding: 0 0 $paddingVer;
+					color: #000;
+
+					small{
+						color: $gray;
+					}
+				
+					> img{
+						height: 120px;
+					}
+				}
+
+				tfoot > tr{
+					> td{
+						padding: $paddingVer 0;
+
+						border-top-width: 1px;
+						border-style: solid;
+						border-color: $gray-line;
+					}
+
+					&:last-child > td{
+						color: #000;
+						border-color: #000;
+					}
+				}
+			}			
+		}
+	}
+
+}

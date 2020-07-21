@@ -1,0 +1,29 @@
+<div id="order-summary" class="card position-sticky" style="top:2rem">
+    <div class="card-header d-none d-md-block bg-transparent border-bottom-0 px-3">
+        Order Summary
+    </div>
+    <div class="card-body p-0">
+        <table class="reset table d-none d-sm-block">
+            <tbody>
+            {% set isCartEditable = false %}
+                {% for i in range(0,2) %}
+                {% include "components/commerce/cart-items.njk" %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% include "components/commerce/order-total.njk" %}
+    </div>
+    <div class="card-footer bg-transparent">
+        <div class="d-flex flex-column flex-md-row justify-content-around">
+            <a href="#" class="btn btn-secondary">Back to Shop</a>
+            {# <button class="btn btn-primary">Continue Shipment</button> #}
+            <a href="checkout-thankyou.html" class="btn btn-primary">Continue Shipment</a>
+        </div>
+        <!-- if qty changed -->
+        {# <div class="d-flex flex-column flex-md-row justify-content-around">
+            <button class="btn btn-secondary">Update Cart <i class="fal fa-sync"></i></button>
+            <button class="btn btn-primary">Continue Shipment</button>
+        </div> #}
+    </div>
+</div>

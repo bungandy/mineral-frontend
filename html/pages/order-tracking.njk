@@ -1,0 +1,59 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section id="account" class="pt-4 pb-5">
+
+        <div class="container-fluid">
+            <div class="row">
+                {% set accountNavActive = 0 %}
+                {% include "components/commerce/account-nav.njk" %}
+                <section class="col">
+                    
+                    {% set accountPageTitle = "Order Tracking" %}
+                    {% set accountPageTitleSub = "I want to track my order." %}
+                    {% include "components/commerce/account-title.njk" %}
+
+                    <form action="">
+                        <div class="form-group">
+                            <label for="order-tracking" class="d-block text-center-mobile">Nomor Order</label>
+                            <input type="email" class="form-control text-center-mobile" id="order-tracking" value="NUETA2007130001">
+                        </div>
+
+                        <!-- Result -->
+                        <table class="tracking-awb reset table mt-5">
+                            <thead>
+                                <tr>
+                                    <th class="w-33 d-none d-sm-table-cell">Date</th>
+                                    <th colspan="2">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in range(0,5) %}
+                                <tr>
+                                    <td class="font-weight-bold d-none d-sm-table-cell">10 Juli 2020 00:00</td>
+                                    <td>IN</td>
+                                    <td class="text-muted">Paket telah di input (manifested) di Jakarta Barat [Jakbar Pesing Poglar]</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <div class="text-center-mobile form-group mt-5">
+                            <button class="btn btn-primary">Track my order</button>
+                        </div>
+
+                        
+                    </form>
+
+
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}

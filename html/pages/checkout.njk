@@ -1,0 +1,177 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section class="cart-overview pb-3">
+        <div class="container-fluid">
+            {% set checkoutStepActive = "shipment" %}
+            {% include "components/commerce/checkout-step.njk" %}
+        </div>
+    </section>
+
+    <section id="checkout" class="pb-5">
+
+        
+
+        <div class="container-fluid">
+
+            <a href="#" role="button" class="btn-collapse-trigger text-left d-sm-none" data-toggle="collapse" data-target="#collapse-order-item" aria-expanded="false" aria-controls="collapse-order-item">
+                ORDER DETAIL <i class="fal fa-chevron-down small"></i>
+            </a>
+            <div id="collapse-order-item" class="collapse">
+                <table class="reset table">
+                    <tbody>
+                    {% set isCartEditable = false %}
+                        {% for i in range(0,2) %}
+                        {% include "components/commerce/cart-items.njk" %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <form>
+                        <a href="#" role="button" class="btn-collapse-trigger text-left d-sm-none" data-toggle="collapse" data-target="#collapse-address" aria-expanded="true" aria-controls="collapse-address">
+                            SHIPPING ADDRESS <i class="fal fa-chevron-down small"></i>
+                        </a>
+
+                        <div id="collapse-address" class="collapse show d-sm-block">
+                        
+                            <div id="ship-my-address" class="position-relative">
+                                {% set inputType = "checkout-my-address" %}
+                                {% include "components/commerce/account-fields.njk" %}
+                            </div>
+
+                            <div id="ship-different-section"  class="form-group row justify-content-end pt-3 pb-3">
+                                <div class="col-sm-8">
+                                    <input type="checkbox" id="ship-different">
+                                    <label class="form-check-label" for="ship-different">Ship to different address</label>
+                                </div>
+                            </div>
+
+                            <div id="ship-different-address" style="display:none">
+                                {% set inputType = "checkout-different-address" %}
+                                {% include "components/commerce/account-fields.njk" %}
+                            </div>
+
+                            <hr class="my-4 d-none d-sm-block">
+
+                        </div>
+
+                        <a href="#" role="button" class="btn-collapse-trigger text-left d-sm-none" data-toggle="collapse" data-target="#shipping-method" aria-expanded="true" aria-controls="shipping-method">
+                            SHIPPING METHOD <i class="fal fa-chevron-down small"></i>
+                        </a>
+
+                        <div id="shipping-method" class="collapse show d-sm-block">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label d-none d-sm-block">Shipping Services</label>
+                                <div class="col">
+                                    
+                                    <div class="card bg-light border-light">
+                                        <div class="card-body">
+                                            <p class="font-weight-bold">SiCepat</p>
+                                            
+                                            <div class="d-flex d-column d-sm-flex flex-wrap">
+                                                {% for i in [{'name':'SIUNTUNG','value':'sicepat-siuntung', 'cost':'8,000', 'eta':'2-3'}, {'name':'REG','value':'sicepat-reg', 'cost':'10,000', 'eta':'1-2'}, {'name':'BEST','value':'sicepat-best', 'cost':'15,000', 'eta':'1'}] %}
+                                                <div class="w-50 form-check mb-3">
+                                                    <input type="radio" class="form-check-input" id="shipping-{{ i.value }}" name="shipping-method">
+                                                    <label class="form-check-label text-uppercase" for="shipping-{{ i.value }}">IDR {{ i.cost }}<br/><span class="small text-muted">{{ i.name }} ({{ i.eta }} DAY)</span></label>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" role="button" class="btn-collapse-trigger text-left d-sm-none" data-toggle="collapse" data-target="#payment-method" aria-expanded="true" aria-controls="payment-method">
+                            PAYMENT METHOD <i class="fal fa-chevron-down small"></i>
+                        </a>
+
+                        <div id="payment-method" class="collapse show d-sm-block">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label d-none d-sm-block">Payment Method</label>
+                                <div class="col">
+                                    <div class="list-payment card bg-light border-light">
+                                        <div class="card-body">
+                                            <p class="font-weight-bold">Transfer</p>
+                                            
+                                            <div class="d-flex d-column d-sm-flex flex-wrap">
+                                                {% for i in [{'name':'BCA', 'value':'va-bca', 'logo':'payment-bca'}, {'name':'Mandiri', 'value':'va-mandiri', 'logo':'payment-mandiri'}, {'name':'BNI', 'value':'va-bni', 'logo':'payment-bni'}, {'name':'Permata', 'value':'va-permata', 'logo':'payment-permata'}] %}
+                                                <div class="w-50 form-check mb-3">
+                                                    <input type="radio" class="form-check-input" id="payment-{{ i.value }}" name="payment-method">
+                                                    <label class="form-check-label text-uppercase" for="payment-{{ i.value }}">
+                                                        <img class="{{ i.value }}" srcset="assets/img/{{ i.logo }}.png 1x,
+                                                            assets/img/{{ i.logo }}@2x.png 2x,
+                                                            assets/img/{{ i.logo }}@3x.png 3x"
+                                                        src="assets/img/{{ i.logo }}.png" alt="">
+                                                    </label>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-payment card bg-light border-light mt-3">
+                                        <div class="card-body">
+                                            <p class="font-weight-bold">Others</p>
+                                            {% for i in [{'name':'Gopay','value':'qr-gopay', 'logo':'payment-gopay'}, {'name':'Credit Card', 'value':'creditcard', 'logo':'payment-creditcard'}] %}
+                                            <div class="form-check mb-3">
+                                                <input type="radio" class="form-check-input" id="payment-{{ i.value }}" name="payment-method">
+                                                <label class="form-check-label text-uppercase" for="payment-{{ i.value }}">
+                                                    <img srcset="assets/img/{{ i.logo }}.png 1x,
+                                                        assets/img/{{ i.logo }}@2x.png 2x,
+                                                        assets/img/{{ i.logo }}@3x.png 3x"
+                                                    src="assets/img/{{ i.logo }}.png" alt="">
+                                                </label>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    {# <p class="extra-small mt-2">Payment provider by Midtrans</p> #}
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-md-4 mobile-px-0">
+                    {% include "components/commerce/order-summary.njk" %}
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+</main>
+{% endblock %}
+
+{% block script %}
+<script>
+    $('#ship-different').on('change',function(){
+        let _this = $(this)
+        let _that = $('#ship-different-address')
+        let formMyAddress = $('#ship-my-address')
+        let divToScroll = $('#ship-different-section')
+        if( _this.is(':checked') ){
+            _that.slideDown(200)
+            formMyAddress.addClass('inactive')
+            $('html, body').animate({
+                scrollTop: divToScroll.offset().top
+            }, 400)
+        }else{
+            _that.slideUp(200)    
+            formMyAddress.removeClass('inactive')
+        }
+    })
+
+</script>
+{% endblock %}

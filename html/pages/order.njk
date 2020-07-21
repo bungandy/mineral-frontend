@@ -1,0 +1,55 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section id="account" class="pt-4 pb-5">
+
+        <div class="container-fluid">
+            <div class="row">
+                {% set accountNavActive = 0 %}
+                {% include "components/commerce/account-nav.njk" %}
+                <section class="col">
+                    {% set accountPageTitle = "Order History" %}
+                    {% include "components/commerce/account-title.njk" %}
+
+                    <table class="table-mobile reset table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Payment</th>
+                                <th class="text-right">Total</th>
+                                <th class="text-right">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(0000,0040) %}
+                            <tr>
+                                <td class="font-weight-bold" data-title="Order ID"><a href="account-order-detail.html">NUETA2007{{i}}</a></td>
+                                <td data-title="Payment">{{ ['BANK TRANSFER BCA','CREDIT CARD','GOPAY'] | random }}</td>
+                                <td class="text-right" data-title="Total">{{ ['IDR 390,000','IDR 570,000','IDR 1,030,000'] | random }}</td>
+                                <td class="text-right" data-title="Status">{{ ['Expired','Payment Pending','Shipped'] | random }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <nav class="d-flex justify-content-end my-5">
+                        <ul class="pagination">
+                            <li class="page-item"><span class="page-link" href="#">Previous</span></li>
+                            {% for i in range(1,6) %}
+                            <li class="page-item {% if i == 1 %}active{% endif %}">
+                                <span class="page-link">{{i}}</span>
+                            </li>
+                            {% endfor %}
+                            <li class="page-item"><span class="page-link" href="#">Next</span></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}

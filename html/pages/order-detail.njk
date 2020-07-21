@@ -1,0 +1,57 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section id="account" class="pt-4 pb-5">
+
+        <div class="container-fluid">
+            <div class="row">
+                {% set accountNavActive = 0 %}
+                {% include "components/commerce/account-nav.njk" %}
+                <section class="col">
+                    {% set accountPageTitle = "Order Detail" %}
+                    {% include "components/commerce/account-title.njk" %}
+
+                    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4 mb-3">
+                        <h4>NUETA200700001</h4>
+                        <span class="small">Order Date: 08/07/2020 08:00 AM</span>
+                    </div>
+                    <table class="table-mobile reset table">
+                        <thead>
+                            <tr>
+                                <th>Shipment</th>
+                                <th>Payment</th>
+                                <th class="text-right">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="Shipment">
+                                    <p class="font-weight-bold">SiCepat BEST</p>
+                                    <p>Andy Christiawan<br>
+                                    Metro Permata 1 Blok A1 No 21,<br/>
+                                    Karang Tengah, Kota Tangerang, BANTEN 15157</p>
+                                </td>
+                                <td data-title="Payment">{{ ['BANK TRANSFER BCA','CREDIT CARD','GOPAY'] | random }}</td>
+                                <td class="text-right" data-title="Status">{{ ['Expired','Payment Pending','Shipped'] | random }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    {% include "components/commerce/cart-table.njk" %}
+
+                    {% include "components/commerce/order-total.njk" %}
+
+                    <div class="alert alert-secondary text-center" role="alert">
+                        Need help? <a href="#" class="alert-link">Contact us</a>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}

@@ -1,0 +1,14 @@
+<table class="cart-table reset table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th class="qty text-center">Qty</th>
+            <th class="d-none d-sm-table-cell text-right">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in range(0,5) %}
+        {% include "components/commerce/cart-items.njk" %}
+        {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,10 @@
+<aside class="col-sm-4 col-lg-3">
+    <nav id="account-nav" class="nav flex-row flex-sm-column justify-content-between">
+        {% for i in range(0,10) %}
+        <a class="nav-link btn btn-outline-grey text-uppercase {% if accountNavActive == i %}active{% endif %}" href="#">
+            {# if active, use = 'fas' #}
+            <i class="{% if accountNavActive == i %}fas{% else %}fal{% endif %} fa-circle"></i> Account menu {{ i }}
+        </a>
+        {% endfor %}
+    </nav>
+</aside>

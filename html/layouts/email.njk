@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+
+            _                      _   
+  _ __ ___ (_)_ __   ___ _ __ __ _| |  
+ | '_ ` _ \| | '_ \ / _ \ '__/ _` | |  
+ | | | | | | | | | |  __/ | | (_| | |_ 
+ |_| |_| |_|_|_| |_|\___|_|  \__,_|_(_)
+
+ site       : http://mineral.co.id
+ email      : hello@mineral.co.id
+ twitter    : @mineralstudio
+
+-->
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name=”x-apple-disable-message-reformatting”>
+<meta property="og:title" content="" />
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+{% block meta %}
+{% endblock %}
+
+<base href="/"/>
+
+<link rel="stylesheet" href="assets/email.css">
+
+</head>
+
+<body class="{% block bodyclass %}{% endblock %}">
+
+    <table id="wrap" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td>
+                    {% include "components/email/header.njk" %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% block content %}
+                    {% endblock %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {% include "components/email/footer.njk" %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
+

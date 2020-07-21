@@ -1,0 +1,87 @@
+{% extends "default.njk" %}]
+
+{% block content %}
+<main id="content">
+
+    <section id="account" class="pt-4 pb-5">
+
+        <div class="container-fluid">
+            <div class="row">
+                {% set accountNavActive = 0 %}
+                {% include "components/commerce/account-nav.njk" %}
+                <section class="col">
+                    {% set accountPageTitle = "Contact" %}
+                    {% include "components/commerce/account-title.njk" %}
+
+                    <div class="text-muted d-flex flex-column flex-sm-row justify-content-between">
+                        <div class="mr-3">
+                            <h5>Customer Service</h5>
+                            <p>Phone<br/>08108247802</p>
+                        </div>
+                        <div class="mr-3">
+                            <h5>Hours of Operations</h5>
+                            <p>09.00 - 18.00<br/>Monday-Friday</p>
+                        </div>
+                        <div class="mr-3">
+                            <h5>Address</h5>
+                            <p>Metro Permata 1, Blok A1 No 21<br/>021 12345678</p>
+                        </div>
+                    </div>
+
+                    <hr class="my-5">
+
+                    <h2 class="h3 text-color-primary-20 mb-4">Email Form</h2>
+                    <p class="text-muted">We want to hear from you. Please feel free to email orders[at]nueta.id or just speak Your mind below. Please allow 1 business day to respond</p>
+
+                    <form action="">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-4 col-form-label text-muted">Name</label>
+                            <div class="col">
+                                <input type="text" class="form-control" id="name" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-4 col-form-label text-muted">Email Address</label>
+                            <div class="col">
+                                <input type="email" class="form-control" id="email" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-sm-4 col-form-label text-muted">Handphone</label>
+                            <div class="col">
+                                <input type="text" class="form-control" id="phone" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="subject" class="col-sm-4 col-form-label text-muted">Subject</label>
+                            <div class="col">
+                                <input type="text" class="form-control" id="subject" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="message" class="col-sm-4 col-form-label text-muted">Message</label>
+                            <div class="col">
+                                <textarea name="message" id="" rows="3" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row justify-content-end">
+                            <div class="col-sm-8">
+                                <img srcset="assets/img/_temp/captcha.png 1x, assets/img/_temp/captcha@2x.png 2x" src="assets/img/_temp/captcha.png" alt="" style="margin-left:-2px">
+                            </div>
+                        </div>
+
+                        <div class="form-group row justify-content-end mt-5">
+                            <div class="col-sm-8">
+                                <button class="btn btn-primary">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+
+    </section>
+    
+</main>
+{% endblock %}
