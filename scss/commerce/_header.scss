@@ -1,0 +1,203 @@
+/* -------------------------------------------------------------------------- */
+/*                                   HEADER                                   */
+/* -------------------------------------------------------------------------- */
+#header{
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    // background-color: transparent;
+    border-bottom: 1px solid $gray-line;
+    // border-bottom: 1px solid transparent;
+    transition: all .2s ease-in-out;
+    
+    // @include media-breakpoint-down(md){
+    //     transition: background-color .2s ease-in-out;
+    //     transition-delay: .1s;
+    // }
+    
+
+    &.has-hero {
+        position: absolute;
+        // top: 0;
+        left: 0;
+        width: 100%;
+        border-color: transparent;
+
+        @include media-breakpoint-up(lg){
+            background-color: transparent !important;
+        }
+
+        .menu-wrapper{
+            // border-color: rgba(#fff,0.2) !important;
+        }
+
+        .navbar-brand{
+            svg{
+                .w-shape {
+                    fill: #fff;
+                }
+            }
+        }
+
+        .navbar-nav{
+            > .nav-link{
+                color: #fff;
+            }
+        }
+
+        .has-cart{
+            &:after{
+                background-color: #fff;
+            }
+        }
+
+        .hamburger {
+            .hamburger-inner {
+
+                &,
+                &:before,
+                &:after {
+                    background-color: #fff;
+                }
+            }
+        }
+
+    }
+
+    &.active{
+        background-color: #fff !important;
+        border-color: $gray-line;
+
+        .menu-wrapper{
+            border-bottom-color: #000;
+        }
+
+        .navbar-brand{
+            svg{
+                .w-shape {
+                    fill: #000;
+                }
+            }
+        }
+
+        .navbar-nav{
+            a{
+                color: #000;
+            }
+        }
+
+        .has-cart{
+            &:after{
+                background-color: $primary;
+            }
+        }
+
+        .hamburger{
+            .hamburger-inner{
+                &,
+                &:before,
+                &:after{
+                    background-color: #000;
+                }
+            }
+        }
+        
+    }
+
+    // &:not(.no-border){
+    //     .menu-wrapper{
+    //         border-bottom: 1px solid $primary;
+    //     }
+    // }
+
+    &.no-border{
+        .navbar{
+            padding-bottom: 0;
+        }
+    }
+
+    .navbar{
+        @include media-breakpoint-up(md){
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .menu-wrapper{
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .navbar-brand{
+        margin: 0;
+        padding: 0;
+
+        svg{
+            position: relative;
+            margin-top: -12px;
+
+            .w-shape{
+                fill: #000;
+            }
+        }
+
+        // @include media-breakpoint-up(lg){
+        //     margin-right: 3rem;
+        // }
+    }
+
+    .navbar-nav{
+        @include media-breakpoint-down(sm){
+            min-width: 44px;
+        }
+        .nav-link{
+            color: #000;
+            // transition: color .2s ease-in-out;
+            // transition-delay: .1s;
+
+            &.cart{
+                @include media-breakpoint-down(md){
+                    padding-right: 1rem;
+                }
+                @include media-breakpoint-up(md){
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .has-cart{
+        position: relative;
+        float: left;
+
+        &:after{
+            content: '';
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            
+            border-radius: 50%;
+            margin-left: 5px;
+            position: relative;
+            // top: 50%;
+            // transform: translateY(-50%);
+            background-color: #000;
+            animation: blinking 2s infinite;
+            transition: background-color .2s ease-in-out;
+            transition-delay: .1s;
+        }
+    }
+
+    .hamburger{
+        .hamburger-inner{
+            &,
+            &:before,
+            &:after{
+                background-color: #000;
+            }
+        }
+    }
+    
+}

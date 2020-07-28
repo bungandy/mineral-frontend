@@ -1,8 +1,20 @@
+/* ---------------------------------- VARS ---------------------------------- */
+@import "./vars";
+
+
+/* ---------------------------- MINERAL FRONTEND ---------------------------- */
+@import "../../node_modules/mineral-frontend/scss/mineral/mixin";
+@import "../../node_modules/mineral-frontend/scss/mineral/component";
+@import "../../node_modules/mineral-frontend/scss/commerce/header";
+@import "../../node_modules/mineral-frontend/scss/commerce/account";
+@import "../../node_modules/mineral-frontend/scss/commerce/product";
+@import "../../node_modules/mineral-frontend/scss/commerce/cart";
+@import "../../node_modules/mineral-frontend/scss/commerce/checkout";
+
+
 /* -------------------------------------------------------------------------- */
-/*                           MINERAL FRONTEND STYLES                          */
+/*                                   GLOBAL                                   */
 /* -------------------------------------------------------------------------- */
-@import "mineral/mineral";
-@import "mineral/components/account";
-@import "mineral/components/product";
-@import "mineral/components/cart";
-@import "mineral/components/checkout";
+*{
+	-webkit-overflow-scrolling: touch;
+}
