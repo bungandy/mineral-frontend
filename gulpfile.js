@@ -44,7 +44,7 @@ gulp.task('js', (done) => {
 })
 
 gulp.task('sass', (done) => {
-    gulp.src('./sass/*.scss')
+    gulp.src('./scss/*.scss')
         .pipe(plumber())
         .pipe(sass())
         .pipe(gulp.dest('./dist/assets'))
@@ -133,7 +133,7 @@ gulp.task('watch', (done) => {
 
     gulp.watch('./src/js/*.js', gulp.series('js'))
 
-    gulp.watch('./sass/**/*.scss', gulp.series('sass'))
+    gulp.watch('./scss/**/*.scss', gulp.series('sass'))
 
     gulp.watch('./html/**/*.njk', gulp.series('html'))
 
